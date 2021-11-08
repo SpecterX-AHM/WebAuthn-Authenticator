@@ -1,0 +1,23 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+bin/
+out/
+*.iml
+*.iws
+.attach_pid*
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Gradle
+.gradle/
+build/

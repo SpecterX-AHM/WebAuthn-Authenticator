@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'application'
+    id 'scala'
+}
+
+description = 'WebAuthn Authenticator'
+
+dependencies {
+    implementation(platform(rootProject))
+
+    implementation(
+        project(':webauthn-server-attestation'),
+        project(':webauthn-server-core-minimal'),
+        project(':yubico-util'),
+
+        'com.google.guava:guava',
+        'com.fasterxml.jackson.core:jackson-databind',
+        'com.upokecenter:cbor',
+        'javax.ws.rs:javax.ws.rs-api',
+        'org.eclipse.jetty:jetty-server',
+        'org.eclipse.jetty:jetty-servlet',
+        'org.glassfish.jersey.containers:jersey-container-servlet-core',
+        'org.slf4j:slf4j-api',
+    )
+
+    runtimeOnly(
+        'ch.qos.logback:logback-classic',
+        'org.glassfish.jersey.containers:jersey-container-servlet',
+        'org.glassfish.jersey.inject:jersey-hk2',
+    )
+
+    modules {
+        module('javax.servlet:servlet-api') {
+            replacedBy('javax.servlet:javax.servlet-api')
+        }
+    }
+}
+
+mainClassName = 'app.webauthn.EmbeddedWebServer'
+
+[installDist, distZip, distTar].each { task ->
+    def intoDir = (task == installDist) ? "/" : "${project.name}-${project.version}"
+    task.into(intoDir) {
+        from 'my-release-key.keystore'
+        from('src/main/webapp') {
+            into 'src/main/webapp'
+        }
+    }
+}

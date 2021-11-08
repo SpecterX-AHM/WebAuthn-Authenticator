@@ -1,0 +1,12 @@
+// assigns a name to the build, which overrides the default behavior of naming the build after the directory it’s in
+rootProject.name = 'webauthn-server-parent'
+include ':webauthn-server-attestation'
+include ':webauthn-server-core'
+include ':webauthn-server-core-bundle'
+include ':yubico-util'
+
+// build consists of one subproject called webAuthn-authenticator
+include ':webauthn-authenticator'
+
+project(':webauthn-server-core').name = 'webauthn-server-core-minimal'
+project(':webauthn-server-core-bundle').name = 'webauthn-server-core'

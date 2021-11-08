@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    id 'scala'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+evaluationDependsOn(':webauthn-server-core-minimal')
+
+dependencies {
+    api(platform(rootProject))
+
+    api(
+        project(':webauthn-server-core-minimal'),
+    )
+
+    implementation(
+        project(':yubico-util'),
+        'com.google.guava:guava',
+        'com.fasterxml.jackson.core:jackson-databind',
+        'org.bouncycastle:bcprov-jdk15on',
+        'org.slf4j:slf4j-api',
+    )
+
+    testRuntimeOnly(
+        'ch.qos.logback:logback-classic',
+    )
+    testRuntimeOnly(
+        // Transitive dependency from :webauthn-server-core:test
+        'org.bouncycastle:bcpkix-jdk15on',
+    )
+
+    testRuntimeOnly(
+        'ch.qos.logback:logback-classic',
+    )
+}
+
+
+

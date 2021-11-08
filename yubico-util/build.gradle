@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+    id 'scala'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    api(platform(rootProject))
+
+    api(
+        'com.fasterxml.jackson.core:jackson-databind',
+    )
+
+    implementation(
+        'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor',
+        'com.fasterxml.jackson.datatype:jackson-datatype-jdk8',
+        'com.google.guava:guava',
+        'com.upokecenter:cbor',
+        'org.slf4j:slf4j-api',
+    )
+
+    testRuntimeOnly(
+        'ch.qos.logback:logback-classic',
+    )
+
+    testRuntimeOnly(
+        'ch.qos.logback:logback-classic',
+    )
+}
+
+

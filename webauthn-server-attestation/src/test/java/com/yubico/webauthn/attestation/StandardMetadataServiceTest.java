@@ -35,7 +35,8 @@ import java.security.cert.X509Certificate;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Optional;
-import org.testng.annotations.Test;
+
+import org.junit.Test;
 
 public class StandardMetadataServiceTest {
   private static final String ATTESTATION_CERT =

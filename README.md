@@ -26,22 +26,41 @@ authenticate using two types of authenticators:
 - **yubico-util**: contains some utility classes, not part of the Public API.  
 - **webauthn-authenticator**: Contains the implementation of WebAuthn authenticator. 
 
-## run  
-You can use the already included [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) for 
+## build and run  
+You can use the already included [Gradle Wrapper v7.2](https://docs.gradle.org/current/userguide/gradle_wrapper.html) 
+for 
 running the WebAuthn Authenticator.  
 ```  
 $ git clone git@github.com:SpecterX-AHM/WebAuthn-Authenticator.git 
-$ cd WebAuthn-Authenticator  
-$ ./gradlew run  
-```  
+$ cd WebAuthn-Authenticator 
+```    
 
 Make sure to use [jdk-11.0.13](https://www.oracle.com/java/technologies/downloads/#java11-windows).
-This will serve the application at https://localhost:8888.  
+
+
+To build 
+```
+$ ./gradlew build  
+```    
+
+To run
+```
+$ ./gradlew run 
+```    
+This will serve the application at https://localhost:8888.
+
+To generate a war 
+```
+$ ./gradlew war 
+```  
+
+
+
 
 
 Some references and gratitude to:  
 - [Web Authentication:
   An API for accessing Public Key Credentials](https://www.w3.org/TR/webauthn/).
-- [java-webauthn-server](https://github.com/java-webauthn-server).  
+- [java-webauthn-server](https://github.com/Yubico/java-webauthn-server).  
 
 

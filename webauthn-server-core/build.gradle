@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'scala'
+    //id 'scala'
 }
 
 sourceCompatibility = 1.8

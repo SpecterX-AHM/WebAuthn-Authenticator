@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'scala'
+    //id 'scala'
 }
 
 sourceCompatibility = 1.8
@@ -20,9 +20,10 @@ dependencies {
         'com.google.guava:guava',
         'com.fasterxml.jackson.core:jackson-databind',
         'org.bouncycastle:bcprov-jdk15on',
+        'junit:junit',
+        'org.mockito:mockito-core',
         'org.slf4j:slf4j-api',
     )
-    implementation 'org.testng:testng:7.1.0'
 
     testRuntimeOnly(
         'ch.qos.logback:logback-classic',

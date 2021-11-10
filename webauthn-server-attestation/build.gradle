@@ -22,6 +22,7 @@ dependencies {
         'org.bouncycastle:bcprov-jdk15on',
         'org.slf4j:slf4j-api',
     )
+    implementation 'org.testng:testng:7.1.0'
 
     testRuntimeOnly(
         'ch.qos.logback:logback-classic',
